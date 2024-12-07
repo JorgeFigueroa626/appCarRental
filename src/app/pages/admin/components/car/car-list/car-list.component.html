@@ -1,0 +1,46 @@
+
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzType="Working...">
+    <div style="display: flex; justify-content: flex-end; margin: 10px;">
+        <button nz-button nzType="primary" routerLink="/admin/car-manage">Add Car</button>
+    </div>
+    
+    <nz-table #basicTable [nzData]="cars" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Id</th>
+                <th style="font-weight: bolder; color: #003973;">Brand</th>
+                <th style="font-weight: bolder; color: #003973;">Name</th>
+                <th style="font-weight: bolder; color: #003973;">Image</th>
+                <th style="font-weight: bolder; color: #003973;">Transmission</th>
+                <th style="font-weight: bolder; color: #003973;">Fuel</th>
+                <th style="font-weight: bolder; color: #003973;">Price</th>
+                <th style="font-weight: bolder; color: #003973;">Color</th>
+                <th style="font-weight: bolder; color: #003973;">Descriptions</th>
+                <th style="font-weight: bolder; color: #003973;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let car of basicTable.data">
+                <td>{{ car.id }}</td>
+                <td>{{ brandName }}</td>
+                <td>{{ car.name }}</td>
+                <td>
+                    <img alt="profile" class="car-image" [src]="car.processedImg">
+                </td>
+                <td>{{ transmissionName }}</td>
+                <td>{{ fuelName }}</td>
+                <td>{{ car.price }}</td>
+                <td>{{ car.color }}</td>
+                <td>{{ car.description }}</td>
+                <td>
+                    <strong>
+                        <button nzSize="small" nz-button nzType="primary"
+                        routerLink="/admin/update-car/{{car.id}}">Update</button>
+                        <button class="action-button" nzSize="small" nz-button nzType="primary"
+                        (click)="delete(car.id)" nzDanger>Delete</button>
+                    </strong>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>

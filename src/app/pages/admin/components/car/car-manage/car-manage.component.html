@@ -1,0 +1,110 @@
+<div style="margin-top: 50px;">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="parent">
+            <div class="child">
+                <div class="imgDiv">
+                    <h2 style="margin-left: 20px;">Car Create</h2>
+                </div>
+
+                <form nz-form [formGroup]="postCarFrom">
+                    <div nz-row>
+
+                        <div nz-col [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                            <div class="profile-badge">
+                                <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+                                    <img [src]="imagePreview" alt="profile" class="profile">
+                                </label>
+
+                                <input type="file" nz-button nzType="primary" id="upload_profile_image"
+                                       accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)">
+                                <button nz-button nzShape="circle"></button>
+                            </div>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a brad name" formControlName="brandId" name="brandId">
+                                        <nz-option *ngFor="let brand of brands" nzLabel="{{ brand.name }}"
+                                            nzValue="{{ brand.id }}"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <input nz-input placeholder="Name" formControlName="name">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzErrorTip="This input is required">
+                                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a fuel" formControlName="fuelId" name="fuelId">
+                                        <nz-option *ngFor="let fuel of fuels" nzLabel="{{ fuel.name }}"
+                                            nzValue="{{ fuel.id }}"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a color" formControlName="color">
+                                        <nz-option *ngFor="let color of listOfColors" nzLabel="{{ color }}"
+                                            nzValue="{{ color }}"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+                        
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a transmission" formControlName="transmissionId" name="transmissionId" >
+                                        <nz-option *ngFor="let transmission of transmissions" nzLabel="{{ transmission.name }}"
+                                            nzValue="{{ transmission.id }}"></nz-option>
+                                    </nz-select>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <nz-year-picker style="width: 100%;" nzPlaceHolder="Model Year" formControlName="year"></nz-year-picker>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This input is required">
+                                    <input type="number" nz-input placeholder="Price" formControlName="price">
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback  nzErrorTip="This input is required">
+                                    <textarea nz-input placeholder="Description" formControlName="description"></textarea>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                    </div>
+
+                    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" 
+                            (click)="posCars()" [disabled]="postCarFrom.invalid">Add Car</button>
+
+                </form>
+            </div>
+        </div>
+    </nz-spin>
+</div>
+

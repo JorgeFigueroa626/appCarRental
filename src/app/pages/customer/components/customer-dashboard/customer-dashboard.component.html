@@ -1,0 +1,36 @@
+<div style="background-color: #F8F8F8; min-height: 91vh;">
+    <div style="padding-top: 10px;"></div>
+
+    <div class="child" style="margin-top: 10px;" *ngFor="let car of cars">
+        <div nz-row>
+            <div nz-col nzSpan="8">
+                <img alt="profile" class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="car.processedImg">
+            </div>
+
+            <div nz-col nzSpan="16">
+                <h2 style="cursor: pointer; color: #108ee9;">
+                    {{ brandName }} - {{ car.name }}
+                </h2>
+                
+                <hr>
+                <h5>
+                    Year : <b>{{ car.year | date: 'yyyy' }}</b> -
+                    Transmission : <b>{{ transmissionName }}</b> - 
+                    Price : <b>$ {{ car.price }}</b> -
+                    Color : <b> {{ car.color }}</b>
+                </h5>
+                <hr>
+                <p>{{ car.description }}</p>
+                <hr>
+                <div style="float: right;">
+                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
+                            routerLink="/customer/booking/{{car.id}}">Reserve
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,41 @@
+/* Estilo general para la tabla */
+.table-header {
+    font-weight: bolder;
+    color: #003973;
+    text-align: left;
+}
+
+/* Estilo para la tabla */
+.nz-table th, .nz-table td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+/* Estilo para las filas alternadas */
+.nz-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Estilo para el botón */
+.action-button {
+    margin-left: 10px;
+    display: inline-block;
+}
+
+/* Estilo para las imágenes de los coches */
+.car-image {
+    height: 50px;
+    width: 80px;
+    border-radius: 10px;
+}
+
+/* Mejorar el espaciado de la tabla */
+.nz-table {
+    margin-top: 20px;
+}
+
+/* Alineación de los botones de acción */
+.action-column {
+    text-align: center;
+}

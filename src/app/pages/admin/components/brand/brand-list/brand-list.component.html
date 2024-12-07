@@ -1,0 +1,28 @@
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzType="Working...">
+    <nz-table #basicTable [nzData]="brands" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">ID</th>
+                <th style="font-weight: bolder; color: #003973;">NAME</th>
+                <th style="font-weight: bolder; color: #003973;">DESCRIPTIONS</th>
+                <th style="font-weight: bolder; color: #003973;">ACTIONS</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let brand of basicTable.data">
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+                <td>{{ brand.description }}</td>
+                
+                <td>
+                    <strong>
+                        <button nzSize="small" nz-button nzType="primary">Update</button>
+                        <button class="action-button" nzSize="small" nz-button nzType="primary" nzDanger>Delete</button>
+                    </strong>
+                </td>
+
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>
